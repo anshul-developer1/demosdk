@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="textview_color">#232323</color>
+    <color name="white_background">#FFFFFF</color>
+    <color name="menu_header">#34c1d6</color>
+    <color name="pin_textview">#04dbb1</color>
+    <color name="recycler_background">#14c9a6</color>
+</resources>

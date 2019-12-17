@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">AeroPaySDK</string>
+
+
+    <string-array name="navigation_items">
+        <item>Settings</item>
+        <item>Fast Login</item>
+    </string-array>
+
+    <string-array name="settings_items">
+        <item>Store Location</item>
+        <item>Device Names</item>
+        <item>Transaction Days</item>
+    </string-array>
+
+    <string-array name="store_array">
+        <item>Store 1</item>
+        <item>Store 2</item>
+        <item>Store 3</item>
+    </string-array>
+
+    <string-array name="device_array">
+        <item>Device 1</item>
+        <item>Device 2</item>
+    </string-array>
+
+    <string-array name="fast_login_array">
+        <item>Enable Auto-Login</item>
+        <item>Enable Pin-Login</item>
+    </string-array>
+
+    <string-array name="transaction_days_array">
+        <item>10</item>
+        <item>20</item>
+        <item>25</item>
+        <item>50</item>
+    </string-array>
+
+
+    <!--font-->
+    <string name="adineue_pro_light">adineuePRO-Light.otf</string>
+    <string name="adineue_pro_regular">adineuePRO-Regular.otf</string>
+    <string name="adineue_pro_bold">adineuePRO-Bold.otf</string>
+    <string name="adineue_pro_black">adineuePRO-Black.otf</string>
+    <!--font-->
+
+</resources>
