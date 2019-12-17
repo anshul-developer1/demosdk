@@ -32,12 +32,14 @@ class SettingsScreenActivity : BaseActivity() {
     }
 
 
+    // setting listeners for UI view
     private fun setListeners() {
         backButton.setOnClickListener(View.OnClickListener {
             finish()
         })
     }
 
+    // inflating UI controls
     private fun initialiseControls() {
         save = findViewById(R.id.saveButton)
         backButton = findViewById(R.id.back_button)
@@ -49,6 +51,7 @@ class SettingsScreenActivity : BaseActivity() {
         createStoreSpinner(this)
     }
 
+    // creating spinner to select store from dropdown list
     private fun createStoreSpinner(context: Context?) {
 
         var objModelManager = AeropayModelManager().getInstance()
@@ -85,6 +88,7 @@ class SettingsScreenActivity : BaseActivity() {
         }
     }
 
+    // creating spinner to select devices from dropdown list
     fun createDeviceSpinner() {
         deviceNameSpinner.visibility = View.VISIBLE
 
@@ -129,6 +133,7 @@ class SettingsScreenActivity : BaseActivity() {
         }
     }
 
+    // saving store name and device name on save button click
     fun onStoreSelectedEvent(position : Int){
         var objModelManager = AeropayModelManager().getInstance()
 

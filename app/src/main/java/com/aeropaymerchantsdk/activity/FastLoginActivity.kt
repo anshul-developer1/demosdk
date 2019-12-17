@@ -32,6 +32,7 @@ class FastLoginActivity : BaseActivity() {
         setInitialToggleStage()
     }
 
+    // setting listeners on UI for View click
     private fun setListeners() {
         autoLoginToggle.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
             override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
@@ -65,6 +66,7 @@ class FastLoginActivity : BaseActivity() {
         })
     }
 
+    // inflating UI controls
     private fun initialiseControls() {
         save = findViewById(R.id.saveButton)
         backButton = findViewById(R.id.back_button)
@@ -75,6 +77,7 @@ class FastLoginActivity : BaseActivity() {
         setInitialToggleStage()
     }
 
+    // setting toggle button initial state
     private fun setInitialToggleStage() {
             var isLoginEnabled = PrefKeeper.isLoggedIn
             if(isLoginEnabled){
@@ -97,6 +100,7 @@ class FastLoginActivity : BaseActivity() {
             }
     }
 
+    // save button click event
     fun onSaveButtonClick(view: View) {
         PrefKeeper.isLoggedIn = isLogin
         PrefKeeper.isPinEnabled = isPin
@@ -104,6 +108,7 @@ class FastLoginActivity : BaseActivity() {
         finish()
     }
 
+    // move to set Pin Page
     fun moveToSetPin(){
         var isLoginEnabled = PrefKeeper.isLoggedIn
         launchActivity(SetPinLogin::class.java)

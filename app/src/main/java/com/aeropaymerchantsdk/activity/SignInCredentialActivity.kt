@@ -62,6 +62,7 @@ class SignInCredentialActivity : BaseActivity(){
         passwordEdit.addTextChangedListener(textWatcher)
     }*/
 
+    // check for email and password validations for Login
     fun createUserValidation(view: View) {
          userName = userNameEdit.text.toString()
          password = passwordEdit.text.toString()
@@ -87,12 +88,14 @@ class SignInCredentialActivity : BaseActivity(){
         }
     }
 
+    //callback for AWS Login success
     fun onCognitoSuccess(){
         savingCredentialInkeystore()
         var awsConnectionManager = AWSConnectionManager(this)
         awsConnectionManager.hitServer(DefineID().FETCH_MERCHANT_PROFILE,this,null)
     }
 
+    //saving Login Credentials in Key Store
     private fun savingCredentialInkeystore() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 var usernameArray = KeystoreEncryptor().encryptText(KeystoreManager.ALIAS.USERNAME, userName)
@@ -109,6 +112,7 @@ class SignInCredentialActivity : BaseActivity(){
             }
         }
 
+    //callback for AWS Login failure
     fun onCognitoFailure(){
         GlobalMethods().dismissLoader()
         Toast.makeText(this,"Invalid username or password", Toast.LENGTH_LONG).show()

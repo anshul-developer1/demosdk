@@ -32,6 +32,7 @@ open class BaseActivity : AppCompatActivity() , ICommunicationHandler{
         setContentView(R.layout.activity_base)
     }
 
+    //move from one activity to other
     fun launchActivity(activityClass: Class<out BaseActivity>, intent : Intent? = null) {
         if(intent != null){
             startActivity(intent)
@@ -39,37 +40,6 @@ open class BaseActivity : AppCompatActivity() , ICommunicationHandler{
         else {
             startActivity(Intent(this, activityClass))
         }
-    }
-
-    fun hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-    fun showProgressBar(msg: String, context : Context?) {
-        if (alertDialog != null && alertDialog!!.isShowing && this.isFinishing) {
-            return
-        }
-        alertDialog = Dialog(context!!)
-        alertDialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        alertDialog!!.setCancelable(false)
-        alertDialog!!.show()
-    }
-
-    fun hideProgressBar() {
-        if (alertDialog != null && alertDialog!!.isShowing) {
-            alertDialog!!.dismiss()
-            alertDialog = null
-        }
-    }
-
-    fun showMsgToast(@StringRes resId: Int) {
-        if (mToast != null) {
-            mToast?.cancel()
-            mToast = null
-        }
-        mToast = Toast.makeText(this, resId, Toast.LENGTH_SHORT)
-        mToast?.show()
     }
 
     fun showMsgToast(msg: String) {
@@ -81,6 +51,7 @@ open class BaseActivity : AppCompatActivity() , ICommunicationHandler{
         mToast?.show()
     }
 
+    // Network callback for success
     override fun onSuccess(outputParms: Int) {
         if(outputParms.equals(DefineID().FETCH_MERCHANT_PROFILE)){
             launchActivity(HomeActivity::class.java)
@@ -93,7 +64,7 @@ open class BaseActivity : AppCompatActivity() , ICommunicationHandler{
         }
     }
 
-
+    // Network callback for failure
     override fun onFailure(outputParms: Int) {
         if(outputParms.equals(DefineID().FETCH_MERCHANT_PROFILE)){
 
@@ -106,6 +77,7 @@ open class BaseActivity : AppCompatActivity() , ICommunicationHandler{
         }
     }
 
+    // removing the android native back press functionality
     override fun onBackPressed() {
 
     }

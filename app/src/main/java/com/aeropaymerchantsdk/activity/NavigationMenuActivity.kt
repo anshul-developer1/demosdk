@@ -30,6 +30,7 @@ class NavigationMenuActivity : BaseActivity() {
 
     }
 
+    // setting on click listeners for UI
     private fun setListeners() {
         menuListView.setOnItemClickListener { parent, view, position, id ->
             if(position == 0){
@@ -47,6 +48,7 @@ class NavigationMenuActivity : BaseActivity() {
     }
 
 
+    // inflating UI controls
     private fun initialiseControls() {
         menuListView = findViewById(R.id.itemsList)
         logout = findViewById(R.id.logoutButton)
@@ -87,6 +89,7 @@ class NavigationMenuActivity : BaseActivity() {
         }
     }
 
+    // sign out button click event
     fun onLogoutButtonClick(view: View) {
         if(PrefKeeper.isPinEnabled || PrefKeeper.isLoggedIn){
             finishAffinity()

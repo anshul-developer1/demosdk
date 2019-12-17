@@ -144,21 +144,7 @@ class SetPinLogin : BaseActivity() {
         buttonDelete = findViewById<View>(R.id.buttonDeleteBack) as CustomTextView
     }
 
-    override fun onBackPressed() {
-        // TODO Auto-generated method stub
-
-        //App not allowed to go back to Parent activity until correct pin entered.
-        return
-        //super.onBackPressed();
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.activity_pin_entry_view, menu);
-        return true
-    }
-
-
+    // locking the keypad after PIN length is matched
     private inner class LockKeyPadOperation : AsyncTask<String, Void, String>() {
 
         override fun doInBackground(vararg params: String): String {

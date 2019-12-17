@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity() {
         PrefKeeper.init(this)
         navigateToScreen()
     }
-
+    //method to check for auto login/pin login or normal login and redirection
     private fun navigateToScreen() {
         if(PrefKeeper.isLoggedIn){
             GlobalMethods().showLoader(this)
@@ -50,7 +50,7 @@ class SplashActivity : BaseActivity() {
         }
 
     }
-
+    //to show Splash for 3 seconds
     internal val mRunnable: Runnable = Runnable {
          if(PrefKeeper.isPinEnabled) {
              launchActivity(ValidatePinActivity::class.java)
@@ -60,12 +60,12 @@ class SplashActivity : BaseActivity() {
              finish()
          }
     }
-
+    // to get callback for login success
     fun onCognitoSuccess(){
         var awsConnectionManager = AWSConnectionManager(this)
         awsConnectionManager.hitServer(DefineID().FETCH_MERCHANT_PROFILE,this,null)
     }
-
+    // to get callback for login failure
     fun onCognitoFailure(){
         GlobalMethods().dismissLoader()
         Toast.makeText(this,"Auto-Login was not successfull", Toast.LENGTH_LONG).show()

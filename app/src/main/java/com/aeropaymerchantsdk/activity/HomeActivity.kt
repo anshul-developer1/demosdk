@@ -40,12 +40,14 @@ class HomeActivity : BaseActivity() {
         }
     }
 
+    //setting onClick Listeners on views
     private fun setListeners() {
         menuButton.setOnClickListener(View.OnClickListener {
             launchActivity(NavigationMenuActivity::class.java)
         })
     }
 
+    //setting up hardcoded Recycler Adapter
     private fun setupView() {
         listViewRecycler.layoutManager = LinearLayoutManager(this)
         val payerName: ArrayList<String> = ArrayList()
@@ -62,6 +64,7 @@ class HomeActivity : BaseActivity() {
         cardViewRecycler.adapter = HomeCardRecyclerView(userName,this)
     }
 
+    //inflating UI controls
     private fun initialiseControls() {
         menuButton = findViewById(R.id.back_button)
         listViewRecycler = findViewById(R.id.recyclerListView)
@@ -75,6 +78,7 @@ class HomeActivity : BaseActivity() {
         aeropayTransparent.visibility = View.GONE
     }
 
+    // to check the login count of this user on this device
     private fun maintainUserLoginCount() {
         var initialLoginCount = PrefKeeper.logInCount
         var finalCount = initialLoginCount + 1

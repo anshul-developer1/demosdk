@@ -20,7 +20,7 @@ class SignInScreenActivity : BaseActivity() {
 
         signInButton = findViewById(R.id.signInButton)
     }
-
+    //to perform login operationb
     fun signInButtonClick(view: View) {
         view.isEnabled = false
         view.isClickable = false
@@ -50,12 +50,12 @@ class SignInScreenActivity : BaseActivity() {
             launchActivity(SignInCredentialActivity::class.java)
         }
     }
-
+    // to get calback for login success
     fun onCognitoSuccess(){
         var awsConnectionManager = AWSConnectionManager(this)
         awsConnectionManager.hitServer(DefineID().FETCH_MERCHANT_PROFILE,this,null)
     }
-
+    // to get callback for login failure
     fun onCognitoFailure(){
         GlobalMethods().dismissLoader()
         Toast.makeText(this,"Auto-Login was not successfull", Toast.LENGTH_LONG).show()
