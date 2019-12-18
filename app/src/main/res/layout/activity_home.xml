@@ -58,7 +58,7 @@
                     android:padding="@dimen/_6sdp"
                     android:background="@drawable/customer_background"
                     android:textColor="@color/white_background"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
             </RelativeLayout>
 
@@ -75,14 +75,14 @@
                     app:ctypeface="@string/adineue_pro_black"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:id="@+id/readyToPayText"
-                    android:textSize="@dimen/_13ssp"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginTop="@dimen/_13sdp">
                 </com.aeropaymerchantsdk.view.CustomTextView>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_130sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:id="@+id/cardLAyout"
                     android:layout_below="@id/readyToPayText">
@@ -115,8 +115,8 @@
                     android:layout_below="@id/cardLAyout"
                     android:id="@+id/authorizedText"
                     android:textColor="@color/textview_color"
-                    android:textSize="@dimen/_13ssp"
-                    android:layout_marginTop="@dimen/_5sdp">
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginTop="@dimen/_17sdp">
                 </com.aeropaymerchantsdk.view.CustomTextView>
             </RelativeLayout>
 

@@ -18,7 +18,7 @@
     <com.aeropaymerchantsdk.view.CustomTextView
         android:layout_width="@dimen/_70sdp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_14ssp"
         android:textColor="#232323"
         app:ctypeface="@string/adineue_pro_bold"
         android:id="@+id/payerName"
@@ -42,7 +42,7 @@
     <com.aeropaymerchantsdk.view.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_14ssp"
         android:textColor="#adadad"
         app:ctypeface="@string/adineue_pro_bold"
         android:id="@+id/timeLeftText"
@@ -54,7 +54,7 @@
     <com.aeropaymerchantsdk.view.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_14ssp"
         android:textColor="#000000"
         app:ctypeface="@string/adineue_pro_bold"
         android:id="@+id/moneyText"

@@ -8,9 +8,10 @@
     android:background="@drawable/card_drawable">
 
 <androidx.cardview.widget.CardView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="@dimen/_120sdp"
     app:cardCornerRadius="@dimen/_5sdp"
+    app:cardElevation="@dimen/_10sdp"
     android:layout_margin="@dimen/_5sdp">
 
         <RelativeLayout
@@ -29,7 +30,7 @@
         <com.aeropaymerchantsdk.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_below="@id/userImage"
@@ -43,7 +44,7 @@
         <com.aeropaymerchantsdk.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_12ssp"
             android:textColor="#adadad"
             android:gravity="center"
             android:layout_marginBottom="@dimen/_5sdp"

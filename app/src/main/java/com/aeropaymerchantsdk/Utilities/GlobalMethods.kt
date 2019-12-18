@@ -2,6 +2,7 @@ package com.aeropaymerchantsdk.Utilities
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
@@ -22,12 +23,8 @@ import java.util.regex.Pattern
 
 class GlobalMethods {
 
-    fun userCognitoLoginHandler(
-        context: Context?,
-        view: View?,
-        userName: String,
-        password: String
-    ){
+    fun userCognitoLoginHandler(context: Context?, view: View?, userName: String, password: String)
+    {
         var cognitoUserPool = CognitoUserPool(context, ConstantsStrings().aws_userpool_id, ConstantsStrings().aws_client_id, ConstantsStrings().aws_client_secret_id,  Regions.US_EAST_1)
         var cognitoUser = cognitoUserPool.getUser()
 
@@ -99,7 +96,10 @@ class GlobalMethods {
         pinLoginBtn.setOnClickListener(View.OnClickListener {
             var pinValue = PrefKeeper.pinValue
             if(pinValue.equals(ConstantsStrings().noValue)){
-                (context as HomeActivity).launchActivity(SetPinLogin::class.java)
+                var intent = Intent(context,PinEnterActivity::class.java)
+                intent.putExtra(ConstantsStrings().isPinActivityName,1)
+                (context as HomeActivity).launchActivity(PinEnterActivity::class.java,intent)
+                //(context as HomeActivity).launchActivity(SetPinLogin::class.java)
             }
             else {
                 PrefKeeper.isPinEnabled = true
@@ -124,7 +124,7 @@ class GlobalMethods {
             override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
                 idToken = userSession!!.idToken.jwtToken
                 if(isEntryPoint.equals(ConstantsStrings().isValidatePinActivity)){
-                    (context as ValidatePinActivity).onCognitoSuccess()
+                    (context as PinEnterActivity).onCognitoSuccess()
                 }
                 else if(isEntryPoint.equals(ConstantsStrings().isSplashActivity)){
                     (context as SplashActivity).onCognitoSuccess()
@@ -136,7 +136,7 @@ class GlobalMethods {
 
             override fun onFailure(exception: Exception?) {
                 if(isEntryPoint.equals(ConstantsStrings().isValidatePinActivity)){
-                    (context as ValidatePinActivity).onCognitoFailure()
+                    (context as PinEnterActivity).onCognitoFailure()
                 }
                 else if(isEntryPoint.equals(ConstantsStrings().isSplashActivity)){
                     (context as SplashActivity).onCognitoFailure()

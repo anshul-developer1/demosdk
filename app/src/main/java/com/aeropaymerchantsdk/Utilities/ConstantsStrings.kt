@@ -24,7 +24,7 @@ class ConstantsStrings {
     val deviceName = "deviceName"
 
 
-    var isStoreSelected = false
+    var isPinActivityName = "isPinActivityName"
     var noValue = "NO VALUE"
 
     val isValidatePinActivity = "isValidatePinActivity"

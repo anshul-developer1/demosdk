@@ -1,5 +1,6 @@
 package com.aeropaymerchantsdk.activity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -44,17 +45,21 @@ class SignInScreenActivity : BaseActivity() {
             }
         }
         else if(PrefKeeper.isPinEnabled){
-            launchActivity(ValidatePinActivity::class.java)
+            var intent = Intent(this@SignInScreenActivity,PinEnterActivity::class.java)
+            intent.putExtra(ConstantsStrings().isPinActivityName,3)
+            launchActivity(PinEnterActivity::class.java,intent)
         }
         else{
             launchActivity(SignInCredentialActivity::class.java)
         }
     }
+
     // to get calback for login success
     fun onCognitoSuccess(){
         var awsConnectionManager = AWSConnectionManager(this)
         awsConnectionManager.hitServer(DefineID().FETCH_MERCHANT_PROFILE,this,null)
     }
+
     // to get callback for login failure
     fun onCognitoFailure(){
         GlobalMethods().dismissLoader()

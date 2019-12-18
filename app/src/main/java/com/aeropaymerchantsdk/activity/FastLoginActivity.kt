@@ -1,5 +1,6 @@
 package com.aeropaymerchantsdk.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -110,8 +111,9 @@ class FastLoginActivity : BaseActivity() {
 
     // move to set Pin Page
     fun moveToSetPin(){
-        var isLoginEnabled = PrefKeeper.isLoggedIn
-        launchActivity(SetPinLogin::class.java)
+        var intent = Intent(this@FastLoginActivity,PinEnterActivity::class.java)
+        intent.putExtra(ConstantsStrings().isPinActivityName,1)
+        launchActivity(PinEnterActivity::class.java,intent)
     }
 
 }

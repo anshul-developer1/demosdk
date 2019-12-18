@@ -22,6 +22,7 @@ class SplashActivity : BaseActivity() {
         PrefKeeper.init(this)
         navigateToScreen()
     }
+
     //method to check for auto login/pin login or normal login and redirection
     private fun navigateToScreen() {
         if(PrefKeeper.isLoggedIn){
@@ -50,21 +51,26 @@ class SplashActivity : BaseActivity() {
         }
 
     }
+
     //to show Splash for 3 seconds
     internal val mRunnable: Runnable = Runnable {
          if(PrefKeeper.isPinEnabled) {
-             launchActivity(ValidatePinActivity::class.java)
+             var intent = Intent(this@SplashActivity,PinEnterActivity::class.java)
+             intent.putExtra(ConstantsStrings().isPinActivityName,3)
+             launchActivity(PinEnterActivity::class.java,intent)
          }
         else {
              launchActivity(SignInScreenActivity::class.java)
              finish()
          }
     }
+
     // to get callback for login success
     fun onCognitoSuccess(){
         var awsConnectionManager = AWSConnectionManager(this)
         awsConnectionManager.hitServer(DefineID().FETCH_MERCHANT_PROFILE,this,null)
     }
+
     // to get callback for login failure
     fun onCognitoFailure(){
         GlobalMethods().dismissLoader()
