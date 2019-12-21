@@ -183,6 +183,7 @@ class GlobalMethods {
         FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
             if (task.isSuccessful)
                 PrefKeeper.deviceToken = task.result!!.token
+            var a = PrefKeeper.deviceToken
         }
     }
 }
